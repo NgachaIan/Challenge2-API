@@ -45,3 +45,6 @@ class Question(Resource):
 
         questions.append(question)
         return {'question': marshal(question, question_fields)}, 201
+
+    def get(self):
+        return {'questions': [marshal(question, question_fields) for question in questions]}
