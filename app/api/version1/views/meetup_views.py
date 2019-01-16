@@ -27,5 +27,15 @@ class Meetups(Resource):
         self.reqparse.add_argument('Tags', type=str, location='json')
         super(Meetups, self).__init__
 
+    def post(self):
+        args = self.reqparse.parse_args()
+        meetup = {
+            'createdOn': self.datetime,
+            'topic': args['topic'],
+            'location': args['location'],
+            'Tags': args['Tags'],
+            'id': len(meetups)
+        }
+
     def get(self):
         return {'meetups': [marshal(meetup, meetup_fields) for meetup in meetups]}
