@@ -43,3 +43,20 @@ class User(Resource):
 
     def get(self):
         return {'users': [marshal(user, user_fields) for user in users]}
+
+    def post(self):
+        args = self.reqparse.parse_args()
+        user = {
+            'firstname': args['firstname'],
+            'lastname': args['lastname'],
+            'othername': args['othername'],
+            'email': args['email'],
+            'phoneNumber': args['phoneNumber'],
+            'username': args['username'],
+            'registered': self.datetime,
+            'isAdmin': False,
+            'id': len(users)
+
+        }
+        users.append(user)
+        return {'user': marshal(user, user_fields)}, 201
