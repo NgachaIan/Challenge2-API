@@ -36,6 +36,16 @@ class Meetups(Resource):
             'Tags': args['Tags'],
             'id': len(meetups)
         }
+        meetups.append(meetup)
+        return {'meetup': marshal(meetup, meetup_fields)}, 201
+
+    def delete(self, id):
+        meetup = [meetup for meetup in meetups if meetup['id'] == id]
+        if len(meetup) == 0:
+            abort(404)
+
+        meetups.remove(meetup[0])
+        return make_response(jsonify({"status": 200, "data": meetups}), 200)
 
     def get(self):
         return {'meetups': [marshal(meetup, meetup_fields) for meetup in meetups]}
