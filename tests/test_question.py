@@ -24,3 +24,10 @@ class CreateQuestion(unittest.TestCase):
                               "Content-Type": "application/json"})
             expected = json.loads(response.get_data())
             self.assertEqual(response.status_code, 201)
+
+    def test_retrieve_question(self):
+        with create_app().test_client() as c:
+            url = "/api/version1/question/get"
+            response = c.get(url)
+            expected = json.loads(response.get_data())
+            self.assertEqual(response.status_code, 200)
