@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, make_response, jsonify
 from flask_restful import fields, marshal, Resource, Api, reqparse
 
 
@@ -45,6 +45,7 @@ class User(Resource):
         return {'users': [marshal(user, user_fields) for user in users]}
 
     def post(self):
+        required = self.reqparse.parse_args(strict=True)
         args = self.reqparse.parse_args()
         user = {
             'firstname': args['firstname'],
@@ -58,5 +59,26 @@ class User(Resource):
             'id': len(users)
 
         }
-        users.append(user)
-        return {'user': marshal(user, user_fields)}, 201
+        if not required['firstname']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        if not required['lastname']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        if not required['othername']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        if not required['email']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        if not required['phoneNumber']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        else:
+            users.append(user)
+            return {'user': marshal(user, user_fields)}, 201
