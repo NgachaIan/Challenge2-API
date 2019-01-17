@@ -1,3 +1,7 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/305bbb9febbad4211861/maintainability)](https://codeclimate.com/github/NgachaIan/Challenge2-API/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/305bbb9febbad4211861/test_coverage)](https://codeclimate.com/github/NgachaIan/Challenge2-API/test_coverage)
+
 # Challenge2-API
 Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered.
 
