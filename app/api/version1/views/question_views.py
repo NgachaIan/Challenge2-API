@@ -44,9 +44,29 @@ class Question(Resource):
             'votes': args['votes'],
             'id': len(questions)
         }
+        if not required['createdBy']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
 
-        questions.append(question)
-        return {'question': marshal(question, question_fields)}, 201
+        if not required['meetup']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        if not required['title']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        if not required['body']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        if not required['votes']:
+            return make_response(jsonify({"status": 400,
+                                          "Error": "The created on field is required"}), 400)
+
+        else:
+            questions.append(question)
+            return {'question': marshal(question, question_fields)}, 201
 
     def patch(self, question_id):
         args = self.reqparse.parse_args()
