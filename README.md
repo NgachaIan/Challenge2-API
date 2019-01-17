@@ -2,7 +2,6 @@
 # Challenge2-API
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/305bbb9febbad4211861/maintainability)](https://codeclimate.com/github/NgachaIan/Challenge2-API/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/305bbb9febbad4211861/test_coverage)](https://codeclimate.com/github/NgachaIan/Challenge2-API/test_coverage)
 [![Build Status](https://travis-ci.com/NgachaIan/Challenge2-API.svg?branch=develop)](https://travis-ci.com/NgachaIan/Challenge2-API)
 [![Coverage Status](https://coveralls.io/repos/github/NgachaIan/Challenge2-API/badge.svg?branch=develop)](https://coveralls.io/github/NgachaIan/Challenge2-API?branch=develop)
 
