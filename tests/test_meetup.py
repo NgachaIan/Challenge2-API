@@ -1,4 +1,3 @@
-from app import create_app
 import unittest
 import os
 import sys
@@ -6,6 +5,7 @@ import json
 import requests
 topdir = os.path.join(os.path.dirname(__file__), "../")
 sys.path.append(topdir)
+from app import create_app
 
 class CreateMeetup(unittest.TestCase):
     def test_create_meetup(self):
