@@ -61,23 +61,6 @@ class Question(Resource):
         }
         for question in questions:
             if question['id'] == question_id:
-                question['votes'] = args['votes'] - 1
-                return question
-
-        return jsonify({'question': marshal(question, question_fields)}), 201
-
-    def patch(self, question_id):
-        args = self.reqparse.parse_args()
-        self.reqparse.add_argument('votes', type=int, location='json')
-        question = {
-            'createdBy': args['createdBy'],
-            'meetup': args['meetup'],
-            'title': args['title'],
-            'body': args['body'],
-            'votes': args['votes']
-        }
-        for question in questions:
-            if question['id'] == question_id:
                 question['votes'] = args['votes'] + 1
                 return question
 
