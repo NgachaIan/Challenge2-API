@@ -35,6 +35,7 @@ class Question(Resource):
         super(Question, self).__init__
 
     def post(self):
+        required = self.reqparse.parse_args(strict=True)
         args = self.reqparse.parse_args()
         question = {
             'createdBy': args['createdBy'],
