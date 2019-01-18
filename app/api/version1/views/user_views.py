@@ -61,23 +61,23 @@ class User(Resource):
         }
         if not required['firstname']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The firstname field is required"}), 400)
 
         if not required['lastname']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The lastname field is required"}), 400)
 
         if not required['othername']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The othername field is required"}), 400)
 
         if not required['email']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The email field is required"}), 400)
 
         if not required['phoneNumber']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The phoneNumber field is required"}), 400)
 
         else:
             users.append(user)
