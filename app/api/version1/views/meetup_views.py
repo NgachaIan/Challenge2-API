@@ -44,15 +44,15 @@ class Meetups(Resource):
 
         if not required['topic']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The topic field is required"}), 400)
 
         if not required['location']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The location field is required"}), 400)
 
         if not required['Tags']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The Tags field is required"}), 400)
 
         else:
             meetups.append(meetup)
