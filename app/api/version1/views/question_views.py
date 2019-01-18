@@ -47,23 +47,23 @@ class Question(Resource):
         }
         if not required['createdBy']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The createdBy field is required"}), 400)
 
         if not required['meetup']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The meetup field is required"}), 400)
 
         if not required['title']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The title field is required"}), 400)
 
         if not required['body']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The body field is required"}), 400)
 
         if not required['votes']:
             return make_response(jsonify({"status": 400,
-                                          "Error": "The created on field is required"}), 400)
+                                          "Error": "The votes field is required"}), 400)
 
         else:
             questions.append(question)
